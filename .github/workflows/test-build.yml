@@ -5,6 +5,8 @@ on:
     paths:
     - 'test/**'
     - '.github/**'
+    - 'packer-build/**'
+    
 
 jobs:
   packer-build:
