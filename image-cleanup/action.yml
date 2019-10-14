@@ -1,0 +1,15 @@
+name: 'AMI Cleanup Build'
+description: Setups lambda to clean up old amis
+inputs:
+  days:
+    description: how many days old are the i
+    default: 60
+  keep_tag:
+    default: promoted
+    description: A tag to look for to exempt it from cleanup
+  dry_run:
+    default: false
+    description: If set to true then will only output what custodian would do
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

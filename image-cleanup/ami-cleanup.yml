@@ -1,0 +1,19 @@
+policies:
+- name: del-60-automated
+  mode:
+    type: periodic
+    schedule: rate(1 day)
+    role: arn:aws:iam::814135279348:role/Custodian-ami-cleanup-role
+  resource: ami
+  description: |
+    Delete AMI that are older than 60 days and 
+    have not been tagged with promoted
+       - "tag:promoted": absent
+       - type: value
+         value_type: age
+         key: CreationDate
+         value: 60
+         op: greater-than
+  actions:
+    - type: deregister
+      delete-snapshots: true

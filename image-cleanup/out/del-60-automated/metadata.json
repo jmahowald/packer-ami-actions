@@ -1,0 +1,73 @@
+{
+  "policy": {
+    "name": "del-60-automated",
+    "mode": {
+      "type": "periodic",
+      "schedule": "rate(1 day)",
+      "role": "arn:aws:iam::814135279348:role/Custodian-ami-cleanup-role"
+    },
+    "resource": "ami",
+    "description": "Delete AMI that are older than 60 days and \nhave not been tagged with promoted\n   - \"tag:promoted\": absent\n   - type: value\n     value_type: age\n     key: CreationDate\n     value: 60\n     op: greater-than\n",
+    "actions": [
+      {
+        "type": "deregister",
+        "delete-snapshots": true
+      }
+    ]
+  },
+  "version": "0.8.45.1",
+  "execution": {
+    "id": "2aa9f6b6-1779-400e-8bf5-82a870452767",
+    "start": 1571094282.146773,
+    "end_time": 1571094282.6071858,
+    "duration": 0.46041274070739746
+  },
+  "config": {
+    "region": "us-east-1",
+    "regions": [],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": null,
+    "assume_role": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "out",
+    "cache_period": 15,
+    "dryrun": true,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "ami-cleanup.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {
+    "ec2.DescribeImages": 1
+  },
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2019-10-14T18:04:42.606745",
+      "Value": 1,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2019-10-14T18:04:42.606761",
+      "Value": 0.44190382957458496,
+      "Unit": "Seconds"
+    }
+  ]
+}

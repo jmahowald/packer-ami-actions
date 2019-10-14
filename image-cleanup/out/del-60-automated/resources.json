@@ -1,0 +1,39 @@
+[
+  {
+    "Architecture": "x86_64",
+    "CreationDate": "2019-10-14T17:51:10.000Z",
+    "ImageId": "ami-077611c0338f8cb17",
+    "ImageLocation": "814135279348/packer-example 1571075398",
+    "ImageType": "machine",
+    "Public": false,
+    "OwnerId": "814135279348",
+    "State": "available",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Ebs": {
+          "DeleteOnTermination": true,
+          "SnapshotId": "snap-0a910fd9542f96650",
+          "VolumeSize": 8,
+          "VolumeType": "gp2",
+          "Encrypted": false
+        }
+      },
+      {
+        "DeviceName": "/dev/sdb",
+        "VirtualName": "ephemeral0"
+      },
+      {
+        "DeviceName": "/dev/sdc",
+        "VirtualName": "ephemeral1"
+      }
+    ],
+    "EnaSupport": true,
+    "Hypervisor": "xen",
+    "Name": "packer-example 1571075398",
+    "RootDeviceName": "/dev/sda1",
+    "RootDeviceType": "ebs",
+    "SriovNetSupport": "simple",
+    "VirtualizationType": "hvm"
+  }
+]
