@@ -1,0 +1,16 @@
+name: 'Packer Build'
+description: 'Builds packer jobs'
+inputs:
+  working_dir:
+    description: where to execute
+    default: .
+  template:
+    required: true
+    description: The packer job
+outputs:
+  image-id
+  image-version
+  image-name
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
