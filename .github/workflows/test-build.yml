@@ -20,5 +20,5 @@ jobs:
         AWS_DEFAULT_REGION: us-east-2
       with: 
         working_dir: test
-        template: ubuntu.json
+        template: ubuntu
 
