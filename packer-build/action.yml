@@ -4,9 +4,21 @@ inputs:
   working_dir:
     description: where to execute
     default: .
-  template:
+  git_tag_name:
+    description: The tag prefix for git/build information
+    default: git-info
+  template_name:
     required: true
-    description: The packer job
+    description: The packer job name
+  validate_only:
+    default: false
+    description: Set to "true" if you want to only validate instead of build
+  additional_info_file:
+    default: git-info-tpl.json
+  template_file:
+    required: false
+    desription: Use if the template file isn't simply the $template_name.json in the working dir
+  
 outputs:
   image-id
   image-version

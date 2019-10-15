@@ -1,0 +1,11 @@
+{
+    "builders": [
+      {
+        "tags": {
+          "{{.Env.INPUT_GIT_TAG_NAME}}:repo" : "{{.Env.GITHUB_REPOSITORY}}",
+          "{{.Env.INPUT_GIT_TAG_NAME}}:version" : "{{.Env.GITHUB_REF}}",
+          "{{.Env.INPUT_GIT_TAG_NAME}}:sha" : "{{.Env.GITHUB_SHA}}"
+        }
+      }
+    ]
+}
