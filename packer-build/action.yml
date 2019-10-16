@@ -26,9 +26,8 @@ inputs:
     desription: Use if the template file isn't simply the $template_name.json in the working dir
   
 outputs:
-  image-id
-  image-version
-  image-name
+  image-id:
+    description: 'the ami created'
 runs:
   using: 'docker'
   image: 'Dockerfile'
