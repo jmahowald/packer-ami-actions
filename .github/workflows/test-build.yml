@@ -22,5 +22,5 @@ jobs:
       with: 
         working_dir: test
         template: ubuntu
-      - name: Get Image id
-        run: echo "The image id was ${{steps.packer_build.outputs.image_id}}"
+    - name: Get Image id
+      run: echo "The image id was ${{steps.packer_build.outputs.image_id}}"
