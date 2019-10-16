@@ -1,0 +1,22 @@
+{{ $days := default .Env.INPUT_DAYS "60" }}
+{{ $keep_tag := default .Env.INPUT_KEEP_TAG "promoted" }}
+
+policies:
+- name: del-60-automated
+  # mode:
+  #   type: periodic
+  #   schedule: rate(1 day)
+  #   role: arn:aws:iam::{{ .Env.AWS_ACCOUNT_ID}}:role/Custodian-ami-cleanup-role
+  resource: ami
+  description: |
+    Delete AMI that are older than {{ $days  }} days and 
+    have not been tagged with {{ $keep_tag }}
+       - "tag:{{ $keep_tag }}": absent
+       - type: value
+         value_type: age
+         key: CreationDate
+         value: {{ $days }}
+         op: greater-than
+  actions:
+    - type: deregister
+      delete-snapshots: true

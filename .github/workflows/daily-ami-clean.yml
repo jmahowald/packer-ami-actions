@@ -1,24 +1,15 @@
-name: Packer Build
-
 on:
-  push: 
-    paths:
-    - 'test/**'
-    - '.github/**'
-    - 'packer-build/**'
-
-
+  schedule: 
+  - cron: "0 0 * * *"
 jobs:
-  packer-build:
+  setup-custodian:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: ./packer-build
+    - uses: ./image-cleanup
       env: 
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-2
       with: 
-        working_dir: test
-        template: ubuntu
-
+        days: 1
