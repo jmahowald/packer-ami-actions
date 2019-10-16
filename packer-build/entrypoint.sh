@@ -29,4 +29,14 @@ else
     packer build packer-build.json
     echo "manifest:"
     cat $INPUT_TEMPLATE-manifest.json
+    # Extract the ami from the manifest.  manifest looks like
+
+    image_id=$(cat $INPUT_TEMPLATE-manifest.json \
+     | jq -r '.builds[0].artifact_id' \
+     | cut -d ":" -f 2)
+    
+    
+    echo ""
+    echo ::set-output name=image_id::$image_id
+
 fi
