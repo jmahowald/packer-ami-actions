@@ -28,8 +28,7 @@ if [ "$INPUT_VALIDATE_ONLY" == "true" ]; then
 else
     packer build packer-build.json
     echo "manifest:"
-    jq -r 
-
+    cat $INPUT_TEMPLATE-manifest.json
     # Extract the ami from the manifest.  manifest looks like
     # {
     #   "builds": [
