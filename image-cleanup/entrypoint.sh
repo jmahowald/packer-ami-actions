@@ -8,9 +8,10 @@ dockerize --template /ami-cleanup.tpl.yml:$POLICY_FILE
 echo "Running policy:"
 cat $POLICY_FILE
 
+mkdir output
 if [ "$INPUT_DRY_RUN" == "true" ]; then
-    custodian run --dryrun -s out $POLICY_FILE
+    custodian run --dryrun -s output $POLICY_FILE
 else
-    custodian run -s out $POLICY_FILE
+    custodian run  -s output $POLICY_FILE
 fi
 
