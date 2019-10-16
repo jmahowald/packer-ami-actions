@@ -11,7 +11,5 @@ COPY entrypoint.sh /entrypoint.sh
 COPY ami-cleanup.tpl.yml /
 RUN chmod +x /entrypoint.sh
 
-
-USER custodian
 ENTRYPOINT [ "/entrypoint.sh" ]
 
