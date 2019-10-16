@@ -53,4 +53,3 @@ else
 
 fi
 
-      "artifact_id": "us-east-1:ami-0f4b5f0233ea8ed95",
