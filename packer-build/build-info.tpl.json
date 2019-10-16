@@ -11,7 +11,7 @@
     "post-processors": [
       {
         "type": "manifest",
-        "output": "{{ .Env.TEMPLATE }}-manifest.json"
+        "output": "{{ .Env.INPUT_TEMPLATE }}-manifest.json"
       }
     ]
   
