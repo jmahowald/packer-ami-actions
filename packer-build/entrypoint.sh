@@ -28,5 +28,5 @@ if [ "$INPUT_VALIDATE_ONLY" == "true" ]; then
 else
     packer build packer-build.json
     echo "manifest:"
-    cat $TEMPLATE_FILE-manifest.json
+    cat $INPUT_TEMPLATE-manifest.json
 fi
