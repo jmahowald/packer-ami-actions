@@ -14,7 +14,13 @@ inputs:
     default: false
     description: Set to "true" if you want to only validate instead of build
   additional_info_file:
-    default: git-info-tpl.json
+    default: /build-info.tpl.json
+    description: |
+     This file's json temlate gets rendered with dockerize and the
+     environent, then is merged into your packer job. The default 
+     behavior is to add git-info tags and to add in a manifest
+     which can be used to more easily chain together builds.
+
   template_file:
     required: false
     desription: Use if the template file isn't simply the $template_name.json in the working dir
