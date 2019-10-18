@@ -11,12 +11,13 @@ policies:
   description: |
     Delete AMI that are older than {{ $days  }} days and 
     have not been tagged with {{ $keep_tag }}
-       - "tag:{{ $keep_tag }}": absent
-       - type: value
-         value_type: age
-         key: CreationDate
-         value: {{ $days }}
-         op: greater-than
+  filters:
+    - "tag:{{ $keep_tag }}": absent
+    - type: value
+      value_type: age
+      key: CreationDate
+      value: {{ $days }}
+      op: greater-than
   actions:
     - type: deregister
       delete-snapshots: true
